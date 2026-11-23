@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-os-primary: var(--os-primary);
+  --color-os-primary-hover: var(--os-primary-hover);
+  --color-os-sidebar-dark: var(--os-sidebar-dark);
+  --color-os-canvas: var(--os-canvas);
+  --color-os-frame-from: var(--os-frame-from);
+  --color-os-frame-via: var(--os-frame-via);
+  --color-os-frame-to: var(--os-frame-to);
+  --color-os-surface-soft: var(--os-surface-soft);
+  --color-os-border: var(--os-border);
+  --color-os-border-strong: var(--os-border-strong);
+  --color-os-ink: var(--os-ink);
+  --color-os-ink-secondary: var(--os-ink-secondary);
+  --color-os-muted: var(--os-muted);
+  --color-os-sidebar-muted: var(--os-sidebar-muted);
+  --color-os-sidebar-text: var(--os-sidebar-text);
+  --color-os-accent-mid: var(--os-accent-mid);
+}
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+
+    --os-primary: #234658;
+    --os-primary-hover: #1a3544;
+    --os-sidebar-dark: #122632;
+    --os-canvas: #e2eef4;
+    --os-frame-from: #d4e6ee;
+    --os-frame-via: #b7d2df;
+    --os-frame-to: #749db2;
+    --os-surface-soft: #eff5f8;
+    --os-border: #cee0e9;
+    --os-border-strong: #cbdce4;
+    --os-ink: #162e3a;
+    --os-ink-secondary: #1e3f50;
+    --os-muted: #5e7b89;
+    --os-sidebar-muted: #a2bcc9;
+    --os-sidebar-text: #dce9f0;
+    --os-accent-mid: #4e7789;
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--os-canvas);
+    color: var(--os-ink);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark,
+  html.dark body {
+    background-color: #0b161e;
+    color: #e6f0f5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Custom slim scrollbar for clean mobile and desktop surfaces */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--os-primary) 24%, transparent);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 184, 202, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

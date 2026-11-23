@@ -1,0 +1,6 @@
+{
+  "name": "OneSpace 2.0",
+  "description": "Your Life, One Space — Mobile-first personal life management for tasks, calendar, habits, finance, goals, and My Space personal digital library.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
